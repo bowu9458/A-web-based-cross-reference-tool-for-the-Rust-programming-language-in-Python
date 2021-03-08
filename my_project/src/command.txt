@@ -1,0 +1,5 @@
+rustc -C opt-level=0 -g -o myprogram_re_test test.rs
+rustc  -g -o myprogram_test main.rs
+objdump -d myprogram_test
+objdump -Sd myprogram_test > objdump.txt
+llvm-dwarfdump --debug-line myprogram_test > dwarfdump.txt

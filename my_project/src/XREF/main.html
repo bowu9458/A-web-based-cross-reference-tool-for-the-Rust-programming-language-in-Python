@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>CSC 254 A4</title>
+    <style type="text/css">
+        body {font-size: 17px}
+
+        table { 
+            width: 100%; 
+            border-radius: solid 1px; 
+            border-collapse: collapse;
+        }    
+
+        th {width: 50%}
+
+        td { 
+            padding: 4px;
+            vertical-align: top; 
+            width: 50%
+        }
+        
+        div{
+            margin-top: 5px;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <table border="1">
+        <tr>
+            <th colspan="2"><a id="outer_module.rs">outer_module.rs</a></th>
+        </tr>
+        <tr>
+            <th>Assembly</th>
+            <th>Source</th>
+        </tr>
+        <tr>
+            <td>
+            <div><a id="6270">6270:</a> 48 83 ec 18  sub    $0x18,%rsp</div>
+                <div><a id="6274">6274:</a> 89 7c 24 14  mov    %edi,0x14(%rsp)</div>
+            </td>
+            <td>
+                <div>1: <span style="color: Gray">//public module
+</span><br>2:  
+<br>3: <span style="color: Red"> pub </span>mod inside_outer_module;
+<br>4:  
+<br>5: <span style="color: Red"> pub </span>fn outer_module_function(x: i32) -> i32 {
+</div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+            <div><a id="6278">6278:</a> 83 ff 00  cmp    $0x0,%edi</div>
+                <div><a id="627b">627b:</a> 89 7c 24 0c  mov    %edi,0xc(%rsp)</div>
+                    <div><a id="627f">627f:</a> 7f 0a  <a href="#628b">628b</a> <_ZN4main12outer_module21outer_module_function17hd2d98173b59504b9E+0x1b></div>
+                    <div><a id="6281">6281:</a> 8b 44 24 0c  mov    0xc(%rsp),%eax</div>
+            </td>
+            <td>
+                <div>6:  <span style="color: Red"> if </span>x > 0{
+</div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+            <div><a id="6285">6285:</a> 89 44 24 10  mov    %eax,0x10(%rsp)</div>
+                    <div><a id="6289">6289:</a> eb 25  <a href="#62b0">62b0</a> <_ZN4main12outer_module21outer_module_function17hd2d98173b59504b9E+0x40></div>
+                    <div><a id="628b">628b:</a> 8b 44 24 0c  mov    0xc(%rsp),%eax</div>
+            </td>
+            <td>
+                <div>11:  	}<span style="color: Red"> else </span>{
+<br>12:  	<span style="color: Red"> return </span>x;
+<br>13:  	}
+<br>14:  	
+</div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+            <div><a id="628f">628f:</a> 83 f8 01  cmp    $0x1,%eax</div>
+                    <div><a id="6292">6292:</a> 74 14  <a href="#62a8">62a8</a> <_ZN4main12outer_module21outer_module_function17hd2d98173b59504b9E+0x38></div>
+                    <div><a id="6294">6294:</a> 8b 44 24 0c  mov    0xc(%rsp),%eax</div>
+            </td>
+            <td>
+                <div>7:  	<span style="color: Red"> if </span>x == 1{
+</div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+            <div><a id="6298">6298:</a> ff c8  dec    %eax</div>
+                <div><a id="629a">629a:</a> 0f 90 c1  seto   %cl</div>
+                <div><a id="629d">629d:</a> f6 c1 01  test   $0x1,%cl</div>
+                <div><a id="62a0">62a0:</a> 89 44 24 08  mov    %eax,0x8(%rsp)</div>
+                <div><a id="62a4">62a4:</a> 75 3e  <a href="#62e4">62e4</a> <_ZN4main12outer_module21outer_module_function17hd2d98173b59504b9E+0x74></div>
+                <div><a id="62a6">62a6:</a> eb 11  <a href="#62b9">62b9</a> <_ZN4main12outer_module21outer_module_function17hd2d98173b59504b9E+0x49></div>
+            </td>
+            <td>
+                <div>10:  	<span style="color: Red"> return </span>x + outer_module_function(x-1)
+</div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+            <div><a id="62a8">62a8:</a> c7 44 24 10 01 00 00  movl   $0x1,0x10(%rsp)</div>
+                <div><a id="62af">62af:</a> 00 </div>
+            </td>
+            <td>
+                <div>8:  		<span style="color: Red"> return </span>1;
+<br>9:  		}
+</div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+            <div><a id="62b0">62b0:</a> 8b 44 24 10  mov    0x10(%rsp),%eax</div>
+                <div><a id="62b4">62b4:</a> 48 83 c4 18  add    $0x18,%rsp</div>
+                <div><a id="62b8">62b8:</a> c3  retq   </div>
+                    <div><a id="62b9">62b9:</a> 8b 7c 24 08  mov    0x8(%rsp),%edi</div>
+            </td>
+            <td>
+                <div>15:  }</div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+            <div><a id="62bd">62bd:</a> e8 ae ff ff ff  <a href="#6270">6270</a> <_ZN4main12outer_module21outer_module_function17hd2d98173b59504b9E></div>
+                <div><a id="62c2">62c2:</a> 89 44 24 04  mov    %eax,0x4(%rsp)</div>
+                    <div><a id="62c6">62c6:</a> 8b 44 24 0c  mov    0xc(%rsp),%eax</div>
+                <div><a id="62ca">62ca:</a> 8b 4c 24 04  mov    0x4(%rsp),%ecx</div>
+                    <div><a id="62ce">62ce:</a> 01 c8  add    %ecx,%eax</div>
+                <div><a id="62d0">62d0:</a> 0f 90 c2  seto   %dl</div>
+                <div><a id="62d3">62d3:</a> f6 c2 01  test   $0x1,%dl</div>
+                <div><a id="62d6">62d6:</a> 89 04 24  mov    %eax,(%rsp)</div>
+                <div><a id="62d9">62d9:</a> 75 27  <a href="#6302">6302</a> <_ZN4main12outer_module21outer_module_function17hd2d98173b59504b9E+0x92></div>
+                    <div><a id="62db">62db:</a> 8b 04 24  mov    (%rsp),%eax</div>
+                    <div><a id="62de">62de:</a> 89 44 24 10  mov    %eax,0x10(%rsp)</div>
+                    <div><a id="62e2">62e2:</a> eb cc  <a href="#62b0">62b0</a> <_ZN4main12outer_module21outer_module_function17hd2d98173b59504b9E+0x40></div>
+                    <div><a id="62e4">62e4:</a> 48 8d 3d 25 0d 03 00  lea    0x30d25(%rip),%rdi        # 37010 <str.0></div>
+                <div><a id="62eb">62eb:</a> 48 8d 15 7e e1 03 00  lea    0x3e17e(%rip),%rdx        # 44470 <__dso_handle+0x38></div>
+                <div><a id="62f2">62f2:</a> 48 8d 05 e7 b5 02 00  lea    0x2b5e7(%rip),%rax        # 318e0 <_ZN4core9panicking5panic17h49577d7675e529f3E></div>
+                <div><a id="62f9">62f9:</a> be 21 00 00 00  mov    $0x21,%esi</div>
+                <div><a id="62fe">62fe:</a> ff d0  callq  *%rax</div>
+                <div><a id="6300">6300:</a> 0f 0b  ud2    </div>
+                    <div><a id="6302">6302:</a> 48 8d 3d 37 0d 03 00  lea    0x30d37(%rip),%rdi        # 37040 <str.1></div>
+                <div><a id="6309">6309:</a> 48 8d 15 78 e1 03 00  lea    0x3e178(%rip),%rdx        # 44488 <__dso_handle+0x50></div>
+                <div><a id="6310">6310:</a> 48 8d 05 c9 b5 02 00  lea    0x2b5c9(%rip),%rax        # 318e0 <_ZN4core9panicking5panic17h49577d7675e529f3E></div>
+                <div><a id="6317">6317:</a> be 1c 00 00 00  mov    $0x1c,%esi</div>
+                <div><a id="631c">631c:</a> ff d0  callq  *%rax</div>
+                <div><a id="631e">631e:</a> 0f 0b  ud2    </div>
+                    <div><a id="6320">6320:</a> 48 83 ec 38  sub    $0x38,%rsp</div>
+            </td>
+            <td>
+                <div><div style="background-color: gray">10:  	<span style="color: Red"> return </span>x + outer_module_function(x-1)
+</div></div>
+            </td>
+        </tr>
+        
+    <table border="1">
+        <tr>
+            <th colspan="2"><a id="outer_module/inside_outer_module.rs">outer_module/inside_outer_module.rs</a></th>
+        </tr>
+        <tr>
+            <th>Assembly</th>
+            <th>Source</th>
+        </tr>
+        <tr>
+            <td>
+            <div><a id="6320">6320:</a> 48 83 ec 38  sub    $0x38,%rsp</div>
+                <div><a id="6324">6324:</a> 31 c0  xor    %eax,%eax</div>
+                <div><a id="6326">6326:</a> 41 89 c0  mov    %eax,%r8d</div>
+            </td>
+            <td>
+                <div>1: <span style="color: Red"> pub </span>fn inside_outer_module_function() {
+</div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+            <div><a id="6329">6329:</a> 48 8b 0d 80 e1 03 00  mov    0x3e180(%rip),%rcx        # 444b0 <__dso_handle+0x78></div>
+                    <div><a id="6330">6330:</a> 48 8b 15 81 e1 03 00  mov    0x3e181(%rip),%rdx        # 444b8 <__dso_handle+0x80></div>
+                <div><a id="6337">6337:</a> 48 8d 7c 24 08  lea    0x8(%rsp),%rdi</div>
+                <div><a id="633c">633c:</a> 48 89 ce  mov    %rcx,%rsi</div>
+                <div><a id="633f">633f:</a> b9 01 00 00 00  mov    $0x1,%ecx</div>
+                <div><a id="6344">6344:</a> 48 89 14 24  mov    %rdx,(%rsp)</div>
+                <div><a id="6348">6348:</a> 48 89 ca  mov    %rcx,%rdx</div>
+                <div><a id="634b">634b:</a> 48 8b 0c 24  mov    (%rsp),%rcx</div>
+                <div><a id="634f">634f:</a> e8 bc 04 00 00  <a href="#6810">6810</a> <_ZN4core3fmt9Arguments6new_v117h46a93cbea10a9c02E></div>
+                <div><a id="6354">6354:</a> 48 8d 7c 24 08  lea    0x8(%rsp),%rdi</div>
+                <div><a id="6359">6359:</a> ff 15 d9 09 04 00  callq  *0x409d9(%rip)        # 46d38 <_GLOBAL_OFFSET_TABLE_+0x3d8></div>
+            </td>
+            <td>
+                <div>2: 	println!( <span style="color: Green">"test"</span>  );
+</div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+            <div><a id="635f">635f:</a> 48 83 c4 38  add    $0x38,%rsp</div>
+                <div><a id="6363">6363:</a> c3  retq   </div>
+                        <div><a id="6364">6364:</a> 66 2e 0f 1f 84 00 00  nopw   %cs:0x0(%rax,%rax,1)</div>
+            </td>
+            <td>
+                <div>3:  }</div>
+            </td>
+        </tr>
+        
+    <table border="1">
+        <tr>
+            <th colspan="2"><a id="main.rs">main.rs</a></th>
+        </tr>
+        <tr>
+            <th>Assembly</th>
+            <th>Source</th>
+        </tr>
+        <tr>
+            <td>
+            <div><a id="6370">6370:</a> 48 81 ec e8 00 00 00  sub    $0xe8,%rsp</div>
+                <div><a id="6377">6377:</a> 48 8d 05 52 fb 02 00  lea    0x2fb52(%rip),%rax        # 35ed0 <_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h87753a9a5e7fa689E></div>
+                <div><a id="637e">637e:</a> 89 7c 24 40  mov    %edi,0x40(%rsp)</div>
+                <div><a id="6382">6382:</a> 89 74 24 44  mov    %esi,0x44(%rsp)</div>
+            </td>
+            <td>
+                <div>1: <span style="color: Red"> mod </span>outer_module;
+<br>2: <span style="color: Red"> use </span>outer_module::outer_module_function;
+<br>3:  
+<br>4: <span style="color: Red"> fn </span>another_function(x: i32, y: i32) {
+</div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+            <div><a id="6386">6386:</a> 48 8b 0d 53 e1 03 00  mov    0x3e153(%rip),%rcx        # 444e0 <__dso_handle+0xa8></div>
+                    <div><a id="638d">638d:</a> 48 8d 54 24 40  lea    0x40(%rsp),%rdx</div>
+                <div><a id="6392">6392:</a> 48 89 94 24 88 00 00  mov    %rdx,0x88(%rsp)</div>
+                <div><a id="6399">6399:</a> 00 </div>
+                <div><a id="639a">639a:</a> 48 8b 94 24 88 00 00  mov    0x88(%rsp),%rdx</div>
+                <div><a id="63a1">63a1:</a> 00 </div>
+                <div><a id="63a2">63a2:</a> 48 89 94 24 d8 00 00  mov    %rdx,0xd8(%rsp)</div>
+                <div><a id="63a9">63a9:</a> 00 </div>
+                    <div><a id="63aa">63aa:</a> 48 89 d7  mov    %rdx,%rdi</div>
+                <div><a id="63ad">63ad:</a> 48 89 c6  mov    %rax,%rsi</div>
+                <div><a id="63b0">63b0:</a> 48 89 4c 24 38  mov    %rcx,0x38(%rsp)</div>
+                <div><a id="63b5">63b5:</a> e8 f6 03 00 00  <a href="#67b0">67b0</a> <_ZN4core3fmt10ArgumentV13new17h9877e8897df3aed7E></div>
+                <div><a id="63ba">63ba:</a> 48 89 44 24 30  mov    %rax,0x30(%rsp)</div>
+                <div><a id="63bf">63bf:</a> 48 89 54 24 28  mov    %rdx,0x28(%rsp)</div>
+                    <div><a id="63c4">63c4:</a> 48 8b 44 24 30  mov    0x30(%rsp),%rax</div>
+                    <div><a id="63c9">63c9:</a> 48 89 44 24 78  mov    %rax,0x78(%rsp)</div>
+                <div><a id="63ce">63ce:</a> 48 8b 4c 24 28  mov    0x28(%rsp),%rcx</div>
+                <div><a id="63d3">63d3:</a> 48 89 8c 24 80 00 00  mov    %rcx,0x80(%rsp)</div>
+                <div><a id="63da">63da:</a> 00 </div>
+                    <div><a id="63db">63db:</a> 48 8d 54 24 78  lea    0x78(%rsp),%rdx</div>
+                <div><a id="63e0">63e0:</a> 48 8d 7c 24 48  lea    0x48(%rsp),%rdi</div>
+                <div><a id="63e5">63e5:</a> 48 8b 74 24 38  mov    0x38(%rsp),%rsi</div>
+                <div><a id="63ea">63ea:</a> 41 b8 02 00 00 00  mov    $0x2,%r8d</div>
+                <div><a id="63f0">63f0:</a> 48 89 54 24 20  mov    %rdx,0x20(%rsp)</div>
+                <div><a id="63f5">63f5:</a> 4c 89 c2  mov    %r8,%rdx</div>
+                <div><a id="63f8">63f8:</a> 48 8b 4c 24 20  mov    0x20(%rsp),%rcx</div>
+                <div><a id="63fd">63fd:</a> 41 b8 01 00 00 00  mov    $0x1,%r8d</div>
+                <div><a id="6403">6403:</a> e8 08 04 00 00  <a href="#6810">6810</a> <_ZN4core3fmt9Arguments6new_v117h46a93cbea10a9c02E></div>
+                <div><a id="6408">6408:</a> 48 8d 7c 24 48  lea    0x48(%rsp),%rdi</div>
+                <div><a id="640d">640d:</a> ff 15 25 09 04 00  callq  *0x40925(%rip)        # 46d38 <_GLOBAL_OFFSET_TABLE_+0x3d8></div>
+                    <div><a id="6413">6413:</a> 48 8d 35 b6 fa 02 00  lea    0x2fab6(%rip),%rsi        # 35ed0 <_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h87753a9a5e7fa689E></div>
+            </td>
+            <td>
+                <div>5:     println!( <span style="color: Green">"{}"</span>  ,x);
+</div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+            <div><a id="641a">641a:</a> 48 8b 05 bf e0 03 00  mov    0x3e0bf(%rip),%rax        # 444e0 <__dso_handle+0xa8></div>
+                    <div><a id="6421">6421:</a> 48 8d 4c 24 44  lea    0x44(%rsp),%rcx</div>
+                <div><a id="6426">6426:</a> 48 89 8c 24 d0 00 00  mov    %rcx,0xd0(%rsp)</div>
+                <div><a id="642d">642d:</a> 00 </div>
+                <div><a id="642e">642e:</a> 48 8b 8c 24 d0 00 00  mov    0xd0(%rsp),%rcx</div>
+                <div><a id="6435">6435:</a> 00 </div>
+                <div><a id="6436">6436:</a> 48 89 8c 24 e0 00 00  mov    %rcx,0xe0(%rsp)</div>
+                <div><a id="643d">643d:</a> 00 </div>
+                    <div><a id="643e">643e:</a> 48 89 cf  mov    %rcx,%rdi</div>
+                <div><a id="6441">6441:</a> 48 89 44 24 18  mov    %rax,0x18(%rsp)</div>
+                <div><a id="6446">6446:</a> e8 65 03 00 00  <a href="#67b0">67b0</a> <_ZN4core3fmt10ArgumentV13new17h9877e8897df3aed7E></div>
+                <div><a id="644b">644b:</a> 48 89 44 24 10  mov    %rax,0x10(%rsp)</div>
+                <div><a id="6450">6450:</a> 48 89 54 24 08  mov    %rdx,0x8(%rsp)</div>
+                    <div><a id="6455">6455:</a> 48 8b 44 24 10  mov    0x10(%rsp),%rax</div>
+                    <div><a id="645a">645a:</a> 48 89 84 24 c0 00 00  mov    %rax,0xc0(%rsp)</div>
+                <div><a id="6461">6461:</a> 00 </div>
+                <div><a id="6462">6462:</a> 48 8b 4c 24 08  mov    0x8(%rsp),%rcx</div>
+                <div><a id="6467">6467:</a> 48 89 8c 24 c8 00 00  mov    %rcx,0xc8(%rsp)</div>
+                <div><a id="646e">646e:</a> 00 </div>
+                    <div><a id="646f">646f:</a> 48 8d 94 24 c0 00 00  lea    0xc0(%rsp),%rdx</div>
+                <div><a id="6476">6476:</a> 00 </div>
+                <div><a id="6477">6477:</a> 48 8d bc 24 90 00 00  lea    0x90(%rsp),%rdi</div>
+                <div><a id="647e">647e:</a> 00 </div>
+                <div><a id="647f">647f:</a> 48 8b 74 24 18  mov    0x18(%rsp),%rsi</div>
+                <div><a id="6484">6484:</a> 41 b8 02 00 00 00  mov    $0x2,%r8d</div>
+                <div><a id="648a">648a:</a> 48 89 14 24  mov    %rdx,(%rsp)</div>
+                <div><a id="648e">648e:</a> 4c 89 c2  mov    %r8,%rdx</div>
+                <div><a id="6491">6491:</a> 48 8b 0c 24  mov    (%rsp),%rcx</div>
+                <div><a id="6495">6495:</a> 41 b8 01 00 00 00  mov    $0x1,%r8d</div>
+                <div><a id="649b">649b:</a> e8 70 03 00 00  <a href="#6810">6810</a> <_ZN4core3fmt9Arguments6new_v117h46a93cbea10a9c02E></div>
+                <div><a id="64a0">64a0:</a> 48 8d bc 24 90 00 00  lea    0x90(%rsp),%rdi</div>
+                <div><a id="64a7">64a7:</a> 00 </div>
+                <div><a id="64a8">64a8:</a> ff 15 8a 08 04 00  callq  *0x4088a(%rip)        # 46d38 <_GLOBAL_OFFSET_TABLE_+0x3d8></div>
+            </td>
+            <td>
+                <div>6:     println!( <span style="color: Green">"{}"</span>  ,y);
+</div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+            <div><a id="64ae">64ae:</a> 48 81 c4 e8 00 00 00  add    $0xe8,%rsp</div>
+                <div><a id="64b5">64b5:</a> c3  retq   </div>
+                        <div><a id="64b6">64b6:</a> 66 2e 0f 1f 84 00 00  nopw   %cs:0x0(%rax,%rax,1)</div>
+                <div><a id="64bd">64bd:</a> 00 00 00 </div>
+            </td>
+            <td>
+                <div>7:  }
+<br>8:  
+</div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+            <div><a id="64c0">64c0:</a> 48 81 ec 38 01 00 00  sub    $0x138,%rsp</div>
+                <div><a id="64c7">64c7:</a> 48 8d 35 02 fa 02 00  lea    0x2fa02(%rip),%rsi        # 35ed0 <_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h87753a9a5e7fa689E></div>
+            </td>
+            <td>
+                <div>9: <span style="color: Red"> fn </span>main() {
+</div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+            <div><a id="64ce">64ce:</a> c7 44 24 5c 0c 00 00  movl   $0xc,0x5c(%rsp)</div>
+                <div><a id="64d5">64d5:</a> 00 </div>
+            </td>
+            <td>
+                <div>10: 	<span style="color: Gray">// comment
+</span><br>11:     <span style="color: Red"> let </span>mut a = 12;
+</div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+            <div><a id="64d6">64d6:</a> 48 8b 05 2b e0 03 00  mov    0x3e02b(%rip),%rax        # 44508 <__dso_handle+0xd0></div>
+                    <div><a id="64dd">64dd:</a> 48 8d 4c 24 5c  lea    0x5c(%rsp),%rcx</div>
+                <div><a id="64e2">64e2:</a> 48 89 8c 24 a0 00 00  mov    %rcx,0xa0(%rsp)</div>
+                <div><a id="64e9">64e9:</a> 00 </div>
+                <div><a id="64ea">64ea:</a> 48 8b 8c 24 a0 00 00  mov    0xa0(%rsp),%rcx</div>
+                <div><a id="64f1">64f1:</a> 00 </div>
+                <div><a id="64f2">64f2:</a> 48 89 8c 24 28 01 00  mov    %rcx,0x128(%rsp)</div>
+                <div><a id="64f9">64f9:</a> 00 </div>
+                    <div><a id="64fa">64fa:</a> 48 89 cf  mov    %rcx,%rdi</div>
+                <div><a id="64fd">64fd:</a> 48 89 44 24 50  mov    %rax,0x50(%rsp)</div>
+                <div><a id="6502">6502:</a> e8 a9 02 00 00  <a href="#67b0">67b0</a> <_ZN4core3fmt10ArgumentV13new17h9877e8897df3aed7E></div>
+                <div><a id="6507">6507:</a> 48 89 44 24 48  mov    %rax,0x48(%rsp)</div>
+                <div><a id="650c">650c:</a> 48 89 54 24 40  mov    %rdx,0x40(%rsp)</div>
+                    <div><a id="6511">6511:</a> 48 8b 44 24 48  mov    0x48(%rsp),%rax</div>
+                    <div><a id="6516">6516:</a> 48 89 84 24 90 00 00  mov    %rax,0x90(%rsp)</div>
+                <div><a id="651d">651d:</a> 00 </div>
+                <div><a id="651e">651e:</a> 48 8b 4c 24 40  mov    0x40(%rsp),%rcx</div>
+                <div><a id="6523">6523:</a> 48 89 8c 24 98 00 00  mov    %rcx,0x98(%rsp)</div>
+                <div><a id="652a">652a:</a> 00 </div>
+                    <div><a id="652b">652b:</a> 48 8d 94 24 90 00 00  lea    0x90(%rsp),%rdx</div>
+                <div><a id="6532">6532:</a> 00 </div>
+                <div><a id="6533">6533:</a> 48 8d 7c 24 60  lea    0x60(%rsp),%rdi</div>
+                <div><a id="6538">6538:</a> 48 8b 74 24 50  mov    0x50(%rsp),%rsi</div>
+                <div><a id="653d">653d:</a> 41 b8 02 00 00 00  mov    $0x2,%r8d</div>
+                <div><a id="6543">6543:</a> 48 89 54 24 38  mov    %rdx,0x38(%rsp)</div>
+                <div><a id="6548">6548:</a> 4c 89 c2  mov    %r8,%rdx</div>
+                <div><a id="654b">654b:</a> 48 8b 4c 24 38  mov    0x38(%rsp),%rcx</div>
+                <div><a id="6550">6550:</a> 41 b8 01 00 00 00  mov    $0x1,%r8d</div>
+                <div><a id="6556">6556:</a> e8 b5 02 00 00  <a href="#6810">6810</a> <_ZN4core3fmt9Arguments6new_v117h46a93cbea10a9c02E></div>
+                <div><a id="655b">655b:</a> 48 8d 7c 24 60  lea    0x60(%rsp),%rdi</div>
+                <div><a id="6560">6560:</a> ff 15 d2 07 04 00  callq  *0x407d2(%rip)        # 46d38 <_GLOBAL_OFFSET_TABLE_+0x3d8></div>
+            </td>
+            <td>
+                <div>12:     println!( <span style="color: Green">"a is {}"</span>  , a);
+<br>13:      
+</div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+            <div><a id="6566">6566:</a> bf 01 00 00 00  mov    $0x1,%edi</div>
+                <div><a id="656b">656b:</a> be 02 00 00 00  mov    $0x2,%esi</div>
+                <div><a id="6570">6570:</a> e8 fb fd ff ff  <a href="#6370">6370</a> <_ZN4main16another_function17h6f3c2a7189f07902E></div>
+            </td>
+            <td>
+                <div>14:      another_function(1,2);
+<br>15:      
+</div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+            <div><a id="6575">6575:</a> eb 00  <a href="#6577">6577</a> <_ZN4main4main17h2d6c3d678af9e020E+0xb7></div>
+                    <div><a id="6577">6577:</a> 83 7c 24 5c 0e  cmpl   $0xe,0x5c(%rsp)</div>
+                    <div><a id="657c">657c:</a> 7c 07  jl     6585 <_ZN4main4main17h2d6c3d678af9e020E+0xc5></div>
+            </td>
+            <td>
+                <div>16:     <span style="color: Red"> while </span>a < 14 {
+</div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+            <div><a id="657e">657e:</a> e8 9d fd ff ff  <a href="#6320">6320</a> <_ZN4main12outer_module19inside_outer_module28inside_outer_module_function17h4bc67d471f547941E></div>
+                <div><a id="6583">6583:</a> eb 63  <a href="#65e8">65e8</a> <_ZN4main4main17h2d6c3d678af9e020E+0x128></div>
+                    <div><a id="6585">6585:</a> 31 c0  xor    %eax,%eax</div>
+                <div><a id="6587">6587:</a> 41 89 c0  mov    %eax,%r8d</div>
+            </td>
+            <td>
+                <div>21:      outer_module::inside_outer_module::inside_outer_module_function();
+<br>22:      
+</div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+            <div><a id="658a">658a:</a> 48 8b 0d 8f df 03 00  mov    0x3df8f(%rip),%rcx        # 44520 <__dso_handle+0xe8></div>
+                    <div><a id="6591">6591:</a> 48 8b 15 90 df 03 00  mov    0x3df90(%rip),%rdx        # 44528 <__dso_handle+0xf0></div>
+                <div><a id="6598">6598:</a> 48 8d bc 24 a8 00 00  lea    0xa8(%rsp),%rdi</div>
+                <div><a id="659f">659f:</a> 00 </div>
+                <div><a id="65a0">65a0:</a> 48 89 ce  mov    %rcx,%rsi</div>
+                <div><a id="65a3">65a3:</a> b9 01 00 00 00  mov    $0x1,%ecx</div>
+                <div><a id="65a8">65a8:</a> 48 89 54 24 30  mov    %rdx,0x30(%rsp)</div>
+                <div><a id="65ad">65ad:</a> 48 89 ca  mov    %rcx,%rdx</div>
+                <div><a id="65b0">65b0:</a> 48 8b 4c 24 30  mov    0x30(%rsp),%rcx</div>
+                <div><a id="65b5">65b5:</a> e8 56 02 00 00  <a href="#6810">6810</a> <_ZN4core3fmt9Arguments6new_v117h46a93cbea10a9c02E></div>
+                <div><a id="65ba">65ba:</a> 48 8d bc 24 a8 00 00  lea    0xa8(%rsp),%rdi</div>
+                <div><a id="65c1">65c1:</a> 00 </div>
+                <div><a id="65c2">65c2:</a> ff 15 70 07 04 00  callq  *0x40770(%rip)        # 46d38 <_GLOBAL_OFFSET_TABLE_+0x3d8></div>
+            </td>
+            <td>
+                <div>17:     	println!( <span style="color: Green">"."</span>  );
+</div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+            <div><a id="65c8">65c8:</a> 8b 44 24 5c  mov    0x5c(%rsp),%eax</div>
+                <div><a id="65cc">65cc:</a> ff c0  inc    %eax</div>
+                <div><a id="65ce">65ce:</a> 0f 90 c1  seto   %cl</div>
+                <div><a id="65d1">65d1:</a> f6 c1 01  test   $0x1,%cl</div>
+                <div><a id="65d4">65d4:</a> 89 44 24 2c  mov    %eax,0x2c(%rsp)</div>
+                <div><a id="65d8">65d8:</a> 0f 85 c3 00 00 00  <a href="#66a1">66a1</a> <_ZN4main4main17h2d6c3d678af9e020E+0x1e1></div>
+                    <div><a id="65de">65de:</a> 8b 44 24 2c  mov    0x2c(%rsp),%eax</div>
+                    <div><a id="65e2">65e2:</a> 89 44 24 5c  mov    %eax,0x5c(%rsp)</div>
+            </td>
+            <td>
+                <div>18:      	a += 1;
+<br>19:      }
+<br>20:      
+</div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+            <div><a id="65e6">65e6:</a> eb 8f  <a href="#6577">6577</a> <_ZN4main4main17h2d6c3d678af9e020E+0xb7></div>
+            </td>
+            <td>
+                <div><div style="background-color: gray">16:     <span style="color: Red"> while </span>a < 14 {
+</div></div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+            <div><a id="65e8">65e8:</a> 48 8b 05 f1 de 03 00  mov    0x3def1(%rip),%rax        # 444e0 <__dso_handle+0xa8></div>
+                    <div><a id="65ef">65ef:</a> bf 03 00 00 00  mov    $0x3,%edi</div>
+                <div><a id="65f4">65f4:</a> 48 89 44 24 20  mov    %rax,0x20(%rsp)</div>
+                <div><a id="65f9">65f9:</a> e8 72 fc ff ff  <a href="#6270">6270</a> <_ZN4main12outer_module21outer_module_function17hd2d98173b59504b9E></div>
+                <div><a id="65fe">65fe:</a> 89 84 24 24 01 00 00  mov    %eax,0x124(%rsp)</div>
+                    <div><a id="6605">6605:</a> 48 8d 35 c4 f8 02 00  lea    0x2f8c4(%rip),%rsi        # 35ed0 <_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17h87753a9a5e7fa689E></div>
+                    <div><a id="660c">660c:</a> 48 8d 84 24 24 01 00  lea    0x124(%rsp),%rax</div>
+                <div><a id="6613">6613:</a> 00 </div>
+                <div><a id="6614">6614:</a> 48 89 84 24 18 01 00  mov    %rax,0x118(%rsp)</div>
+                <div><a id="661b">661b:</a> 00 </div>
+                <div><a id="661c">661c:</a> 48 8b 84 24 18 01 00  mov    0x118(%rsp),%rax</div>
+                <div><a id="6623">6623:</a> 00 </div>
+                <div><a id="6624">6624:</a> 48 89 84 24 30 01 00  mov    %rax,0x130(%rsp)</div>
+                <div><a id="662b">662b:</a> 00 </div>
+                    <div><a id="662c">662c:</a> 48 89 c7  mov    %rax,%rdi</div>
+                <div><a id="662f">662f:</a> e8 7c 01 00 00  <a href="#67b0">67b0</a> <_ZN4core3fmt10ArgumentV13new17h9877e8897df3aed7E></div>
+                <div><a id="6634">6634:</a> 48 89 44 24 18  mov    %rax,0x18(%rsp)</div>
+                <div><a id="6639">6639:</a> 48 89 54 24 10  mov    %rdx,0x10(%rsp)</div>
+                    <div><a id="663e">663e:</a> 48 8b 44 24 18  mov    0x18(%rsp),%rax</div>
+                    <div><a id="6643">6643:</a> 48 89 84 24 08 01 00  mov    %rax,0x108(%rsp)</div>
+                <div><a id="664a">664a:</a> 00 </div>
+                <div><a id="664b">664b:</a> 48 8b 4c 24 10  mov    0x10(%rsp),%rcx</div>
+                <div><a id="6650">6650:</a> 48 89 8c 24 10 01 00  mov    %rcx,0x110(%rsp)</div>
+                <div><a id="6657">6657:</a> 00 </div>
+                    <div><a id="6658">6658:</a> 48 8d 94 24 08 01 00  lea    0x108(%rsp),%rdx</div>
+                <div><a id="665f">665f:</a> 00 </div>
+                <div><a id="6660">6660:</a> 48 8d bc 24 d8 00 00  lea    0xd8(%rsp),%rdi</div>
+                <div><a id="6667">6667:</a> 00 </div>
+                <div><a id="6668">6668:</a> 48 8b 74 24 20  mov    0x20(%rsp),%rsi</div>
+                <div><a id="666d">666d:</a> 41 b8 02 00 00 00  mov    $0x2,%r8d</div>
+                <div><a id="6673">6673:</a> 48 89 54 24 08  mov    %rdx,0x8(%rsp)</div>
+                <div><a id="6678">6678:</a> 4c 89 c2  mov    %r8,%rdx</div>
+                <div><a id="667b">667b:</a> 48 8b 4c 24 08  mov    0x8(%rsp),%rcx</div>
+                <div><a id="6680">6680:</a> 41 b8 01 00 00 00  mov    $0x1,%r8d</div>
+                <div><a id="6686">6686:</a> e8 85 01 00 00  <a href="#6810">6810</a> <_ZN4core3fmt9Arguments6new_v117h46a93cbea10a9c02E></div>
+                <div><a id="668b">668b:</a> 48 8d bc 24 d8 00 00  lea    0xd8(%rsp),%rdi</div>
+                <div><a id="6692">6692:</a> 00 </div>
+                <div><a id="6693">6693:</a> ff 15 9f 06 04 00  callq  *0x4069f(%rip)        # 46d38 <_GLOBAL_OFFSET_TABLE_+0x3d8></div>
+            </td>
+            <td>
+                <div>23:     println!( <span style="color: Green">"{}"</span>  , outer_module_function(3));
+</div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+            <div><a id="6699">6699:</a> 48 81 c4 38 01 00 00  add    $0x138,%rsp</div>
+                <div><a id="66a0">66a0:</a> c3  retq   </div>
+            </td>
+            <td>
+                <div>24:  }
+</div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+            <div><a id="66a1">66a1:</a> 48 8d 3d d8 09 03 00  lea    0x309d8(%rip),%rdi        # 37080 <str.0></div>
+                <div><a id="66a8">66a8:</a> 48 8d 15 81 de 03 00  lea    0x3de81(%rip),%rdx        # 44530 <__dso_handle+0xf8></div>
+                <div><a id="66af">66af:</a> 48 8d 05 2a b2 02 00  lea    0x2b22a(%rip),%rax        # 318e0 <_ZN4core9panicking5panic17h49577d7675e529f3E></div>
+                <div><a id="66b6">66b6:</a> be 1c 00 00 00  mov    $0x1c,%esi</div>
+                <div><a id="66bb">66bb:</a> ff d0  callq  *%rax</div>
+                <div><a id="66bd">66bd:</a> 0f 0b  ud2    </div>
+                        <div><a id="66bf">66bf:</a> 90  nop</div>
+            </td>
+            <td>
+                <div><div style="background-color: gray">18:      	a += 1;
+<br>19:      }
+<br>20:      
+</div></div>
+            </td>
+        </tr>
+        
+</table>
